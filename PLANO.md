@@ -99,8 +99,8 @@ linkedin-post-forge/
 - [x] Escrever este plano
 
 ### Fase 1 — MVP de texto (grátis)
-- [ ] **Radar de tendências** (coletor Python + scoring + briefing) — design e viabilidade em [`docs/RADAR-DE-TENDENCIAS.md`](./docs/RADAR-DE-TENDENCIAS.md)
-- [ ] Modelar `content/` (pilares, hooks, templates)
+- [x] **Radar de tendências** (coletor Python + scoring + briefing) — funcional, 5 fontes; design em [`docs/RADAR-DE-TENDENCIAS.md`](./docs/RADAR-DE-TENDENCIAS.md)
+- [ ] Modelar `content/` (pilares ✅, sources ✅, hooks, templates)
 - [ ] Backend FastAPI: endpoints de leitura + export markdown
 - [ ] Frontend: lista de posts, preview com hook destacado, contador de caracteres, botão copiar
 - [ ] Gerar o primeiro lote de posts reais nas sessões

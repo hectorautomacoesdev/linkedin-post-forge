@@ -1,0 +1,50 @@
+[
+  {
+    "id": "tech",
+    "nome": "Tecnologia & Programação",
+    "peso": 0.45,
+    "keywords": ["python", "fastapi", "django", ".net", "c#", "react", "javascript", "typescript", "node", "api", "ia", "inteligência artificial", "llm", "machine learning", "automação", "cloud", "devops", "open source", "backend", "frontend"],
+    "fontes": ["hackernews", "devto"],
+    "google_news_queries": []
+  },
+  {
+    "id": "games",
+    "nome": "Games",
+    "peso": 0.12,
+    "keywords": ["game", "jogo", "videogame", "lançamento", "rpg", "indie", "console", "steam", "playstation", "xbox", "nintendo"],
+    "fontes": [],
+    "google_news_queries": ["lançamento de jogo", "videogame novidades"]
+  },
+  {
+    "id": "anime",
+    "nome": "Anime & Animação",
+    "peso": 0.12,
+    "keywords": ["anime", "animação", "mangá", "temporada", "estúdio", "episódio", "studio"],
+    "fontes": ["anilist"],
+    "google_news_queries": []
+  },
+  {
+    "id": "natacao",
+    "nome": "Natação & Esportes",
+    "peso": 0.12,
+    "keywords": ["natação", "nadador", "nado", "piscina", "olimpíadas", "campeonato", "treino", "esporte", "recorde"],
+    "fontes": [],
+    "google_news_queries": ["natação", "natação competição"]
+  },
+  {
+    "id": "robotica",
+    "nome": "Robótica",
+    "peso": 0.10,
+    "keywords": ["robótica", "robô", "automação", "drone", "humanoide", "sensor", "atuador", "boston dynamics"],
+    "fontes": [],
+    "google_news_queries": ["robótica", "robô humanoide"]
+  },
+  {
+    "id": "historia",
+    "nome": "História",
+    "peso": 0.09,
+    "keywords": ["história", "histórico", "tecnologia", "ciência", "invenção", "descoberta", "computador"],
+    "fontes": ["wikipedia_onthisday"],
+    "google_news_queries": []
+  }
+]

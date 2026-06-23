@@ -1,0 +1,32 @@
+{
+  "hackernews": {
+    "tipo": "rest",
+    "precisa_chave": false,
+    "limite": 20,
+    "descricao": "Hacker News top stories (Firebase). Sem chave, sem rate limit."
+  },
+  "devto": {
+    "tipo": "rest",
+    "precisa_chave": false,
+    "limite": 30,
+    "descricao": "Dev.to artigos mais populares dos últimos 7 dias. Sem chave."
+  },
+  "anilist": {
+    "tipo": "graphql",
+    "precisa_chave": false,
+    "limite": 15,
+    "descricao": "AniList anime em alta (TRENDING_DESC). ~90 req/min, sem chave."
+  },
+  "wikipedia_onthisday": {
+    "tipo": "rest",
+    "precisa_chave": false,
+    "limite": 15,
+    "descricao": "Wikipedia 'neste dia' (REST v1, idioma pt). Sem chave."
+  },
+  "googlenews": {
+    "tipo": "rss",
+    "precisa_chave": false,
+    "limite": 10,
+    "descricao": "Google News RSS por consulta (PT-BR). Sem chave, ilimitado."
+  }
+}

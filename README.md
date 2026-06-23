@@ -35,6 +35,21 @@ busca por uma vaga em tecnologia, com dois objetivos somados:
 | Backend | Python · FastAPI |
 | Frontend | React · Vite |
 
+## Como rodar o radar de tendências
+
+O radar coleta o que está em alta nos temas do autor (5 fontes gratuitas, sem chave) e gera um
+briefing diário de oportunidades em `content/trends/AAAA-MM-DD.json`.
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate          # Windows (PowerShell: .venv\Scripts\Activate.ps1)
+pip install -r requirements.txt
+python -m radar.collect
+```
+
+Fontes do MVP: **Hacker News**, **Dev.to**, **AniList**, **Wikipedia "neste dia"** e **Google News RSS**.
+Detalhes de design e viabilidade em [`docs/RADAR-DE-TENDENCIAS.md`](./docs/RADAR-DE-TENDENCIAS.md).
+
 ## Licença
 
 A definir.
