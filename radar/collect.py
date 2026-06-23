@@ -14,7 +14,16 @@ from datetime import date
 from pathlib import Path
 
 from .scoring import pontuar
-from .sources import anilist, devto, googlenews, hackernews, wikipedia
+from .sources import anilist, devto, googlenews, hackernews, lobsters, wikipedia
+
+# Cota (mínimo, máximo) de itens no briefing por papel do pilar.
+# Tech é protagonista (mais espaço); hobbies entram como "lentes" (cota menor).
+COTA_POR_PAPEL = {
+    "protagonista": (4, 9),
+    "lente-tech": (2, 4),
+    "lente": (1, 2),
+}
+COTA_PADRAO = (1, 3)
 
 RAIZ = Path(__file__).resolve().parent.parent
 CONTENT = RAIZ / "content"
@@ -23,6 +32,7 @@ TRENDS_DIR = CONTENT / "trends"
 # Fontes "fixas" (intrínsecas a um pilar) coletadas no máximo uma vez.
 FONTES_FIXAS = {
     "hackernews": lambda: hackernews.coletar(pilar="tech"),
+    "lobsters": lambda: lobsters.coletar(pilar="tech"),
     "devto": lambda: devto.coletar(pilar="tech"),
     "anilist": lambda: anilist.coletar(pilar="anime"),
     "wikipedia_onthisday": lambda: wikipedia.coletar(pilar="historia"),
@@ -87,27 +97,27 @@ def _deduplicar(oportunidades: list) -> list:
     return unicas
 
 
-def _balancear(
-    oportunidades: list, top: int, min_por_pilar: int, max_por_pilar: int
-) -> list:
-    """Diversidade por pilar: reserva uma cota mínima de cada tema e limita o máximo,
-    para nenhum pilar dominar nem ficar de fora. Entrada já ordenada por score (desc)."""
+def _balancear(oportunidades: list, top: int, cotas: dict[str, tuple]) -> list:
+    """Diversidade ponderada por papel: reserva a cota mínima de cada pilar e respeita
+    o máximo, dando mais espaço ao protagonista (tech). Entrada ordenada por score (desc)."""
     por_pilar: dict[str, list] = {}
     for o in oportunidades:
         por_pilar.setdefault(o.pilar, []).append(o)
 
     selecionadas: list = []
     # 1) reserva o mínimo de cada pilar (os de maior score dentro do tema)
-    for itens in por_pilar.values():
-        selecionadas.extend(itens[:min_por_pilar])
+    for pilar, itens in por_pilar.items():
+        minimo = cotas.get(pilar, COTA_PADRAO)[0]
+        selecionadas.extend(itens[:minimo])
 
-    # 2) completa por score global, respeitando o máximo por pilar
+    # 2) completa por score global, respeitando o máximo de cada pilar
     ja = {id(o) for o in selecionadas}
     contagem = collections.Counter(o.pilar for o in selecionadas)
     for o in oportunidades:
         if len(selecionadas) >= top:
             break
-        if id(o) in ja or contagem[o.pilar] >= max_por_pilar:
+        maximo = cotas.get(o.pilar, COTA_PADRAO)[1]
+        if id(o) in ja or contagem[o.pilar] >= maximo:
             continue
         selecionadas.append(o)
         contagem[o.pilar] += 1
@@ -117,11 +127,13 @@ def _balancear(
     return selecionadas[:top]
 
 
-def gerar_briefing(
-    top: int = 20, min_por_pilar: int = 2, max_por_pilar: int = 4
-) -> dict:
+def gerar_briefing(top: int = 20) -> dict:
     pilares = _carregar_pilares()
     por_id = {p["id"]: p for p in pilares}
+    cotas = {
+        p["id"]: COTA_POR_PAPEL.get(p.get("papel", "lente"), COTA_PADRAO)
+        for p in pilares
+    }
     print("Coletando fontes...")
     candidatos = coletar_tudo(pilares)
 
@@ -131,7 +143,7 @@ def gerar_briefing(
     ]
     oportunidades.sort(key=lambda o: o.score, reverse=True)
     oportunidades = _deduplicar(oportunidades)
-    oportunidades = _balancear(oportunidades, top, min_por_pilar, max_por_pilar)
+    oportunidades = _balancear(oportunidades, top, cotas)
 
     return {
         "gerado_em": date.today().isoformat(),

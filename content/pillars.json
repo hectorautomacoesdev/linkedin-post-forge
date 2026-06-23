@@ -2,48 +2,54 @@
   {
     "id": "tech",
     "nome": "Tecnologia & Programação",
-    "peso": 0.45,
-    "keywords": ["python", "fastapi", "django", ".net", "c#", "react", "javascript", "typescript", "node", "api", "ia", "inteligência artificial", "llm", "machine learning", "automação", "cloud", "devops", "open source", "backend", "frontend"],
-    "fontes": ["hackernews", "devto"],
-    "google_news_queries": []
+    "papel": "protagonista",
+    "peso": 0.5,
+    "keywords": ["software", "código", "code", "programação", "programming", "developer", "desenvolvedor", "python", "fastapi", "django", ".net", "c#", "react", "javascript", "typescript", "node", "rust", "go", "api", "database", "banco de dados", "ia", "ai", "inteligência artificial", "llm", "machine learning", "cloud", "aws", "azure", "devops", "open source", "backend", "frontend", "framework", "biblioteca", "git", "linux", "engenharia de software", "carreira tech"],
+    "fontes": ["hackernews", "lobsters", "devto"],
+    "google_news_queries": ["inteligência artificial", "desenvolvimento de software"]
+  },
+  {
+    "id": "robotica",
+    "nome": "Robótica & Automação",
+    "papel": "lente-tech",
+    "peso": 0.18,
+    "keywords": ["robótica", "robotics", "robô", "robot", "automação", "drone", "humanoide", "humanoid", "sensor", "atuador", "boston dynamics", "nvidia"],
+    "fontes": [],
+    "google_news_queries": ["robô humanoide", "robótica inteligência artificial"]
   },
   {
     "id": "games",
     "nome": "Games",
-    "peso": 0.12,
-    "keywords": ["game", "jogo", "videogame", "lançamento", "rpg", "indie", "console", "steam", "playstation", "xbox", "nintendo"],
+    "papel": "lente",
+    "peso": 0.08,
+    "keywords": ["game", "jogo", "videogame", "gamedev", "unreal", "unity", "rpg", "indie", "console", "steam"],
     "fontes": [],
-    "google_news_queries": ["lançamento de jogo", "videogame novidades"]
+    "google_news_queries": ["lançamento de jogo"]
   },
   {
     "id": "anime",
     "nome": "Anime & Animação",
-    "peso": 0.12,
-    "keywords": ["anime", "animação", "mangá", "temporada", "estúdio", "episódio", "studio"],
+    "papel": "lente",
+    "peso": 0.08,
+    "keywords": ["anime", "animação", "mangá", "manga", "temporada", "studio", "estúdio"],
     "fontes": ["anilist"],
     "google_news_queries": []
   },
   {
     "id": "natacao",
     "nome": "Natação & Esportes",
-    "peso": 0.12,
-    "keywords": ["natação", "nadador", "nado", "piscina", "olimpíadas", "campeonato", "treino", "esporte", "recorde"],
+    "papel": "lente",
+    "peso": 0.08,
+    "keywords": ["natação", "swimming", "nadador", "nado", "piscina", "olimpíadas", "mundial", "recorde", "treino"],
     "fontes": [],
-    "google_news_queries": ["natação", "natação competição"]
-  },
-  {
-    "id": "robotica",
-    "nome": "Robótica",
-    "peso": 0.10,
-    "keywords": ["robótica", "robô", "automação", "drone", "humanoide", "sensor", "atuador", "boston dynamics"],
-    "fontes": [],
-    "google_news_queries": ["robótica", "robô humanoide"]
+    "google_news_queries": ["Mundial de natação"]
   },
   {
     "id": "historia",
-    "nome": "História",
-    "peso": 0.09,
-    "keywords": ["história", "histórico", "tecnologia", "ciência", "invenção", "descoberta", "computador"],
+    "nome": "História da Tecnologia",
+    "papel": "lente",
+    "peso": 0.08,
+    "keywords": ["história", "tecnologia", "ciência", "invenção", "descoberta", "computador", "pioneiro"],
     "fontes": ["wikipedia_onthisday"],
     "google_news_queries": []
   }
