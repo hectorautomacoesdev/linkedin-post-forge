@@ -28,5 +28,6 @@ build/
 .DS_Store
 Thumbs.db
 
-# ---- Saídas geradas (definir na Fase 1) ----
-# /exports/
+# ---- Uploads do app (binários enviados pelo usuário) ----
+content/uploads/*
+!content/uploads/.gitkeep

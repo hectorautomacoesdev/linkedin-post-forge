@@ -35,6 +35,29 @@ busca por uma vaga em tecnologia, com dois objetivos somados:
 | Backend | Python · FastAPI |
 | Frontend | React · Vite |
 
+## Rodar o app (dashboard + editor)
+
+Interface visual em React (Vite + Tailwind) com backend FastAPI. Tem **Dashboard** (insights e
+gráficos), **Tendências** (briefing do radar + botão para rodá-lo), **Posts** (lista + editor com
+preview do LinkedIn, contador de caracteres e botão copiar), **Calendário** editorial e **Arquivos**
+(upload que é salvo em `content/uploads/`).
+
+```powershell
+# jeito mais fácil (Windows): sobe backend + frontend juntos e abre o navegador
+.\start.ps1
+```
+
+Ou manualmente, em dois terminais:
+
+```bash
+# 1) backend (a partir da raiz)
+.venv\Scripts\python.exe -m uvicorn backend.app.main:app --reload --port 8000
+# 2) frontend
+cd frontend && npm install && npm run dev    # http://localhost:5173
+```
+
+Arquitetura e decisões de projeto em [`docs/APP-PLANO.md`](./docs/APP-PLANO.md).
+
 ## Como rodar o radar de tendências
 
 O radar coleta o que está em alta nos temas do autor (5 fontes gratuitas, sem chave) e gera um
