@@ -99,6 +99,7 @@ linkedin-post-forge/
 - [x] Escrever este plano
 
 ### Fase 1 — MVP de texto (grátis)
+- [ ] **Radar de tendências** (coletor Python + scoring + briefing) — design e viabilidade em [`docs/RADAR-DE-TENDENCIAS.md`](./docs/RADAR-DE-TENDENCIAS.md)
 - [ ] Modelar `content/` (pilares, hooks, templates)
 - [ ] Backend FastAPI: endpoints de leitura + export markdown
 - [ ] Frontend: lista de posts, preview com hook destacado, contador de caracteres, botão copiar
@@ -114,8 +115,3 @@ linkedin-post-forge/
 - [ ] Calendário editorial visual
 - [ ] Métricas/checklist de boas práticas por post
 - [ ] (Opcional) integração com API da Claude para geração autônoma
-
-## 8. Quick wins paralelos (fora da ferramenta)
-
-- ⚠️ **Headline do LinkedIn está "Freelance"** (genérico). É o "título de SEO" do perfil — reescrever
-  pode aumentar muito visualizações e mensagens de recrutador. Tratar como tarefa à parte.
